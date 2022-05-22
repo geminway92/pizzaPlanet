@@ -1,0 +1,19 @@
+<div class="container d-flex flex-column justify-content-center m-3 text-center card" style="width: 90%;">
+
+  <h1 class="p-3">Accede a tu perfil</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Introduce la contraseña</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'">
+    <button class="border-0 bg-transparent" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>  
+  </mat-form-field>
+
+
+  
+</div>

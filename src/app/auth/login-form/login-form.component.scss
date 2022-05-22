@@ -1,0 +1,14 @@
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    /*change color of label*/
+    background-color: transparent;
+} 

@@ -1,0 +1,27 @@
+<nav class="d-flex px-4 py-2 bg-dark justify-content-between">
+    <div class="d-flex align-items-center">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="pointer border-0 bg-transparent text-white" aria-label="Icon menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/carta" >
+                <mat-icon>restaurant_menu</mat-icon>
+                <span>Carta</span>
+            </button>
+            <button mat-menu-item routerLink="/carta" >
+                <mat-icon>restaurant_menu</mat-icon>
+                <span>Carta</span>
+            </button>
+            <button mat-menu-item routerLink="/carta" >
+                <mat-icon>restaurant_menu</mat-icon>
+                <span>Carta</span>
+            </button>
+            <button mat-menu-item routerLink="/carta" >
+                <mat-icon>restaurant_menu</mat-icon>
+                <span>Carta</span>
+            </button>
+        </mat-menu>
+        <a class="text-primary badge fs-3 text-decoration-none" routerLink="/carta">Pizza Planet</a>
+    </div>
+    <button routerLink="/auth/login" type="button" class="btn btn-warning">Iniciar sesión</button>
+</nav>
