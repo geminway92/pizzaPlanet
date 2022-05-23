@@ -42,3 +42,5 @@ testem.log
 Thumbs.db
 
 package-lock.json
+# Local Netlify folder
+.netlify

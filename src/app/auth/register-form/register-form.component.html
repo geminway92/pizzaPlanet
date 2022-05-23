@@ -1,16 +1,5 @@
-<div class="container d-flex flex-column align-items-center">
-    <div class="container">
 
-        <h1 class="fs-6 lh-1 pt-3 fw-bold">1. INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS</h1>
-        <p>
-            <b>Responsable:</b> PIZZA PLANET SL <br>
-            <b>Finalidad:</b> Gestión del registro como cliente. <br>
-            <b>Legitimación:</b> Consentimiento del interesado y/o ejecución de la solicitud <br>
-            <b>Destinatarios:</b> Los datos no se comunicarán a terceros ajenos a la empresa <br>
-            <b>Derechos:</b> Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, como se explica en la información adicional. <br>
-        </p>
-    </div>
-    <form [formGroup]="myForm" class="d-flex flex-column align-items-center">
+    <form [formGroup]="myForm" class="d-flex flex-column align-items-center container card col-11 d-flex flex-column mt-4 align-items-center shadow-lg">
         <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="name">
@@ -46,10 +35,10 @@
         </mat-form-field>
         
         <div class="w-100 p-3">
-            <mat-checkbox class="pe-1"  formControlName="privacityChecked"></mat-checkbox>
-            <span (click)="openDialog()">Confirmo que he leído y acepto la clásula informativa</span>
+            <mat-checkbox class="pe-1"  formControlName="privacityChecked">
+            </mat-checkbox>
+            <p class="d-inline-block" >Confirmo que he leído y  acepto la  <a (click)="openDialog()" class="pointer link-info">clásula informativa</a></p>
         </div>
         <button (click)="registerForm()" [disabled]="myForm.invalid" class="w-200 btn btn-warning rounded-pill fw-bold mb-3" >Finalizar registro </button>
     </form>
 
-</div>

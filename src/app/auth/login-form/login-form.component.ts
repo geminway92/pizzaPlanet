@@ -11,7 +11,7 @@ export class LoginFormComponent implements OnInit {
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
   myForm: FormGroup = this.fb.group({
-    email: ['',[ Validators.required, Validators.email, Validators.pattern( this.emailPattern) ]],
+    email: ['',[ Validators.required, Validators.pattern( this.emailPattern) ]],
     password: ['', [Validators.required ] ],
   })
   
