@@ -11,4 +11,9 @@ input.example-right-align {
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     /*change color of label*/
     background-color: transparent;
+    
 } 
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex:focus {
+    border-bottom: 1px solid #00D318;
+}

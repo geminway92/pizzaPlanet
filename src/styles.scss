@@ -4,9 +4,15 @@
 $primary: #78FFA5;
 
 @import '~bootstrap/scss/bootstrap';
+@import './assets/scss/main.scss';
 
 
-
-html, body { height: 100%; }
+html, body { 
+    height: 100%; 
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $bg-transparent: transparent;
+
+a{
+    text-decoration: none;
+}

@@ -1,19 +1,34 @@
-<div class="container d-flex flex-column justify-content-center m-auto mt-4 text-center card shadow-lg rounded-5" style="width: 90%;">
+<form class="container d-flex flex-column justify-content-center align-items-center m-auto mt-4 text-center card shadow-lg rounded-5 col-11"
+      [formGroup]="myForm">
 
-  <h1 class="p-3">Accede a tu perfil</h1>
-  <mat-form-field class="pb-3" appearance="fill">
+  <h1 class="p-3 m-0 fw-bold">Accede a tu perfil</h1>
+  <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput>
+    <mat-error *ngIf="myForm.controls['email'].errors">{{getErrorMessage()}}</mat-error>
+    <input matInput
+      formControlName="email">
   </mat-form-field>
 
-  <mat-form-field class="pb-4" appearance="fill">
+  <mat-form-field class="w-100 p-3" appearance="fill">
     <mat-label>Introduce la contraseña</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput 
+      [type]="hide ? 'password' : 'text'"
+      formControlName="password">
     <button class="border-0 bg-transparent" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>  
   </mat-form-field>
 
+  <a class="link-dark" routerLink="/forgot-password">He olvidado mi contraseña</a>
+  <button class="btn btn-warning w-50 rounded-pill fw-bold m-4" (click)="sendForm()">Iniciar sesión</button>
 
-  
-</div>
+  <h3 class="fw-bold">¿A que estás esperando para <br>
+    <a class="text-primary bg-dark p-1 rounded-2"
+      routerLink="/register" >Registrar</a> ?
+    
+  </h3>
+</form>
+
+<!-- <pre>{{myForm.controls['email'].errors | json }}</pre>
+<pre>{{myForm.controls['password'].errors | json }} </pre>
+<pre>Form Valid:{{myForm.valid}}</pre> -->

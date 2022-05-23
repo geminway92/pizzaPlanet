@@ -1,1 +1,55 @@
-<p>register-form works!</p>
+<div class="container d-flex flex-column align-items-center">
+    <div class="container">
+
+        <h1 class="fs-6 lh-1 pt-3 fw-bold">1. INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS</h1>
+        <p>
+            <b>Responsable:</b> PIZZA PLANET SL <br>
+            <b>Finalidad:</b> Gestión del registro como cliente. <br>
+            <b>Legitimación:</b> Consentimiento del interesado y/o ejecución de la solicitud <br>
+            <b>Destinatarios:</b> Los datos no se comunicarán a terceros ajenos a la empresa <br>
+            <b>Derechos:</b> Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, como se explica en la información adicional. <br>
+        </p>
+    </div>
+    <form [formGroup]="myForm" class="d-flex flex-column align-items-center">
+        <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="surname">
+        </mat-form-field>
+
+        <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="myForm.controls['email'].errors">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        
+
+       
+        <mat-form-field class="w-100  p-3 pb-1" appearance="fill">
+            <mat-label>Número teléfono</mat-label>
+            <input matInput formControlName="tel">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-hint>Incluye el prefijo</mat-hint>
+        </mat-form-field>
+    
+        
+        <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+            <mat-label>Introduce la contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button class="border-0 bg-transparent" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>  
+        </mat-form-field>
+        
+        <div class="w-100 p-3">
+            <mat-checkbox class="pe-1"  formControlName="privacityChecked"></mat-checkbox>
+            <span (click)="openDialog()">Confirmo que he leído y acepto la clásula informativa</span>
+        </div>
+        <button (click)="registerForm()" [disabled]="myForm.invalid" class="w-200 btn btn-warning rounded-pill fw-bold mb-3" >Finalizar registro </button>
+    </form>
+
+</div>

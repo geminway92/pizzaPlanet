@@ -9,22 +9,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AuthModule } from './auth/auth.module';
-import { LoginFormComponent } from './auth/login-form/login-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    LoginFormComponent
+    
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
