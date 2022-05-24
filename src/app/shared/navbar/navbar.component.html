@@ -23,5 +23,6 @@
         </mat-menu>
         <a class="text-primary badge fs-3 text-decoration-none" routerLink="/carta">Pizza Planet</a>
     </div>
-    <button routerLink="/auth/login" type="button" class="btn btn-outline-warning">Iniciar sesión</button>
+    <a routerLink="/login" type="button" class="link-warning d-flex align-items-center">Iniciar sesión</a>
+    <a (click)="onClick()" routerLink="/carta" type="button" class="link-warning d-flex align-items-center">Logout</a>
 </nav>

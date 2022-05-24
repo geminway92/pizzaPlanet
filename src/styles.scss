@@ -5,6 +5,7 @@ $primary: #78FFA5;
 
 @import '~bootstrap/scss/bootstrap';
 @import './assets/scss/main.scss';
+@import '~ngx-toastr/toastr';
 
 
 html, body { 
@@ -13,9 +14,6 @@ html, body {
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $bg-transparent: transparent;
 
-a{
-    text-decoration: none;
-}
 
  form.card {
     border-radius: 1rem;

@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-
+import { PayComponent } from './pages/pay/pay.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 const routes: Routes = [
-  {
-   path: '',
-   component: HomeComponent
+  { path: '', pathMatch: 'full', redirectTo: 'carta' },
+  { path: 'carta', component: HomeComponent },
+  { 
+    path: 'pay', 
+    component: PayComponent, ...canActivate(() => redirectUnauthorizedTo(['/carta'])) 
   },
-  {
-   path: 'carta',
-   component: HomeComponent
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  }
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
 ];
 
 @NgModule({

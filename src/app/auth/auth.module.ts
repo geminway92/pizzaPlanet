@@ -10,6 +10,9 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogContentComponent } from './components/dialog-content/dialog-content.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 
@@ -31,6 +34,8 @@ import { DialogContentComponent } from './components/dialog-content/dialog-conte
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ]
 })
 export class AuthModule { }

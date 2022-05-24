@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 import { DialogContentComponent } from '../components/dialog-content/dialog-content.component';
 
 @Component({
@@ -30,7 +32,9 @@ export class RegisterFormComponent {
 
   constructor(
     public dialog: MatDialog, 
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UsersService,
+    private router: Router
   ) {}
   
 
@@ -54,8 +58,19 @@ export class RegisterFormComponent {
     });
   }
   
-  registerForm(){
+  // TODO hacer que cree unos datos para saber si es admin o no
+  async onSubmit(){
     console.log(this.myForm.value)
+    const { email, password } = this.myForm.value
+    await this.userService.addUser(this.myForm.value);
+    await this.userService.register( {email, password })
+      .then( resp => {
+        console.log(resp.user)
+        // localStorage.setItem('token', resp.user)
+        this.router.navigate(['/pay'])
+      })
+      .catch(error => console.log(error))
+    
   }
 
 

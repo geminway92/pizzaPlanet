@@ -39,6 +39,6 @@
             </mat-checkbox>
             <p class="d-inline-block" >Confirmo que he leído y  acepto la  <a (click)="openDialog()" class="pointer link-info">clásula informativa</a></p>
         </div>
-        <button (click)="registerForm()" [disabled]="myForm.invalid" class="w-200 btn btn-warning rounded-pill fw-bold mb-3" >Finalizar registro </button>
+        <button (click)="onSubmit()" [disabled]="myForm.invalid" class="w-200 btn btn-warning rounded-pill fw-bold mb-3" >Finalizar registro </button>
     </form>
 

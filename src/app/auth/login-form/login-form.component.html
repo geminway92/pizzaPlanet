@@ -10,7 +10,7 @@
   </mat-form-field>
 
   <mat-form-field class="w-100 p-3" appearance="fill">
-    <mat-label>Introduce la contraseña</mat-label>
+    <mat-label >Introduce la contraseña</mat-label>
     <input matInput 
       [type]="hide ? 'password' : 'text'"
       formControlName="password">
@@ -20,15 +20,8 @@
   </mat-form-field>
 
   <a class="link-dark" routerLink="/forgot-password">He olvidado mi contraseña</a>
-  <button class="btn btn-warning w-50 rounded-pill fw-bold m-4" (click)="sendForm()">Iniciar sesión</button>
+  <button  class="btn btn-warning w-50 rounded-pill fw-bold m-4" [disabled]="myForm.invalid" (click)="onSubtmit()">Iniciar sesión</button>
 
-  <h3 class="fw-bold">¿A que estás esperando para <br>
-    <a class="text-primary bg-dark p-1 rounded-2"
-      routerLink="/register" >Registrar</a> ?
-    
+  <h3 class="fw-bold">¿No estás registrado? <a class="link-info" routerLink="/register" >Crear cuenta</a>
   </h3>
 </form>
-
-<!-- <pre>{{myForm.controls['email'].errors | json }}</pre>
-<pre>{{myForm.controls['password'].errors | json }} </pre>
-<pre>Form Valid:{{myForm.valid}}</pre> -->

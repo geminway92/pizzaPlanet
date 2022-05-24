@@ -9,6 +9,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { PayComponent } from './pages/pay/pay.component';
+
+
 
 
 @NgModule({
@@ -16,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    PayComponent,
     
   ],
   imports: [
@@ -25,6 +34,10 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     MaterialModule,
     AuthModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

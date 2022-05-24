@@ -106,6 +106,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "pizzaPlanet:build:production",
+            "firebaseProject": "pizzaplanet-36c11",
+            "firebaseHostingSite": "pizzaplanet-36c11"
+          }
         }
       }
     }
