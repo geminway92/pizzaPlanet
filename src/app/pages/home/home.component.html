@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="container">
+    <div class="card shadow-sm my-3"
+        *ngFor="let item of cardsLanding">
+        <img class="card" [src]="item.srcImg" alt="">
+        <a class="text-center link-dark fs-5 p-4">{{ item.nameText }}</a>
+    </div>
+</div>

@@ -32,7 +32,6 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
     this.emailCurrent = localStorage.getItem('token')
     this.usersService.checkStateAuth()
-    console.log('estoy en login', this.usersService.currentUser)
   }
 
   getErrorMessage() {
@@ -46,15 +45,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubtmit(){
-    console.log(this.myForm.value)
     this.usersService.login(this.myForm.value)
       .then( resp => {
         this.emailCurrent = resp.user.email
-        this.router.navigate(['/carta'])
-        console.log(resp.user)
+        this.router.navigate(['/main-pizza'])
       })
       .catch( error => {
-        console.log(error)
         this.toastr.error('No se ha podido iniciar sesión', 'Error')
       })
     

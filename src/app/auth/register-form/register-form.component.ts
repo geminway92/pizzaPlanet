@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { DialogContentComponent } from '../components/dialog-content/dialog-content.component';
 import { ToastrService } from 'ngx-toastr';
+import { Auth } from '@angular/fire/auth';
+import { getAuth } from '@firebase/auth';
 
 @Component({
   selector: 'app-register-form',
@@ -28,7 +30,14 @@ export class RegisterFormComponent {
     closeButton: "button",
     icon: true,
     rtl: false
-}
+  }
+  indeterminate: boolean = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled: boolean = false;
+  hide = true;
+  currentName: string = '';
+
+
   myForm: FormGroup = this.fb.group({
     'name': ['', Validators.required],
     'surname': ['', [ Validators.required]],
@@ -38,11 +47,6 @@ export class RegisterFormComponent {
     'privacityChecked': [ false, [ Validators.requiredTrue ]]
 
   })
-  
-  indeterminate: boolean = false;
-  labelPosition: 'before' | 'after' = 'after';
-  disabled: boolean = false;
-  hide = true;
 
   constructor(
     public dialog: MatDialog, 
@@ -75,16 +79,13 @@ export class RegisterFormComponent {
   
   // TODO hacer que cree unos datos para saber si es admin o no
   async onSubmit(){
-    console.log(this.myForm.value)
-    const { email, password } = this.myForm.value
+    const { email, password, name } = this.myForm.value
     await this.userService.addUser(this.myForm.value);
-    await this.userService.register( { email, password })
+    await this.userService.register( { email, password, name })
       .then( resp => {
-        console.log(resp.user)
-        
-        this.toatstr.success('Registro exitoso')
-        // localStorage.setItem('token', resp.user)
+        this.toatstr.success(`Registro exitoso ${ this.myForm.controls['name'].value}`)
         this.router.navigate(['/pay'])
+        
       })
       .catch(error => {
         console.log(error)

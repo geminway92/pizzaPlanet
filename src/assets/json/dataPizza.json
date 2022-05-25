@@ -1,0 +1,22 @@
+[
+    {
+        "nameCategory": "Top ventas",
+        "url": "../../assets/img/TopSales.png"
+    },
+    {
+        "nameCategory": "Entrantes",
+        "url": "../../assets/img/Starters.png"
+    },
+    {
+        "nameCategory": "Postres",
+        "url": ">../../assets/img/BrownkieDelivery.png"
+    },
+    {
+        "nameCategory": "Pizzas",
+        "url": "../../assets/img/Pizzas.png"
+    },
+    {
+        "nameCategory": "Bebidas",
+        "url": "https://www.dominospizza.es/images/Pepsi_148005_0_ES.png"
+    }
+]

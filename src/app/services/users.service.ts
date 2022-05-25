@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import Users from '../interfaces/users.interface';
 import { Observable } from 'rxjs';
-import { Auth, createUserWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, updateProfile,  createUserWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
 import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@firebase/auth';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@fireba
 })
 export class UsersService {
   currentUser: string | null = ''
+  currentNameUser: any= '';
   constructor( private firestore: Firestore, private auth: Auth ) {
     this.currentUser = localStorage.getItem('token')!
   }
@@ -27,8 +28,12 @@ export class UsersService {
   }
 
   // Auth
-  register( {email, password }: any){
-    return createUserWithEmailAndPassword(this.auth, email, password);
+  async register( {email, password, name }: any){
+    this.currentNameUser = name;
+    const resp = await createUserWithEmailAndPassword(this.auth, email, password);
+    this.postProfile()
+
+    return resp;
   }
 
   login( {email, password }: any ){
@@ -36,11 +41,21 @@ export class UsersService {
   }
 
   checkAuth() {
-    return getAuth().currentUser
+    return getAuth().currentUser?.uid
   }
 
   logout() {
     return signOut( this.auth );
+  }
+
+  postProfile(){
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) =>{
+      if(user){
+        updateProfile(user, { displayName: this.currentNameUser, photoURL: 'https:'})      
+      } 
+    })
+  
   }
 
   checkStateAuth(){
@@ -49,13 +64,12 @@ export class UsersService {
       if(user){
         localStorage.setItem('token', user.email!)
         this.currentUser = user.email
-        
+  
       } else {
         localStorage.removeItem('token')
         this.currentUser = null
       }
     })
   }
-  
   
 }

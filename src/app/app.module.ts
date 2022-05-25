@@ -15,6 +15,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { PayComponent } from './pages/pay/pay.component';
+import { MainPizzaComponent } from './pages/main-pizza/main-pizza.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 
 
@@ -25,6 +27,8 @@ import { PayComponent } from './pages/pay/pay.component';
     HomeComponent,
     NavbarComponent,
     PayComponent,
+    MainPizzaComponent,
+    OrdersComponent,
     
   ],
   imports: [

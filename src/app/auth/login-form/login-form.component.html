@@ -1,4 +1,4 @@
-<form class="container d-flex flex-column justify-content-center align-items-center m-auto mt-4 text-center card shadow-lg col-11"
+<form class="container d-flex flex-column justify-content-center align-items-center m-auto mt-4 text-center card shadow-lg  col-sm-7 col-11"
       [formGroup]="myForm">
 
   <h1 class="p-3 m-0 fw-bold">Accede a tu perfil</h1>
@@ -6,14 +6,16 @@
     <mat-label>Email</mat-label>
     <mat-error *ngIf="myForm.controls['email'].errors">{{getErrorMessage()}}</mat-error>
     <input matInput
-      formControlName="email">
+      formControlName="email"
+      autocomplete="username">
   </mat-form-field>
 
   <mat-form-field class="w-100 p-3" appearance="fill">
     <mat-label >Introduce la contraseña</mat-label>
     <input matInput 
       [type]="hide ? 'password' : 'text'"
-      formControlName="password">
+      formControlName="password"
+      autocomplete="current-password">
     <button class="border-0 bg-transparent" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>  

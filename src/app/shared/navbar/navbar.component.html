@@ -1,27 +1,23 @@
 <nav class="d-flex px-4 py-2 bg-dark justify-content-between">
     <div class="d-flex align-items-center">
-        <button mat-icon-button [matMenuTriggerFor]="menu" class="pointer border-0 bg-transparent text-white" aria-label="Icon menu">
+        <button mat-icon-button 
+            [matMenuTriggerFor]="menu" 
+            class="pointer border-0 bg-transparent text-white" 
+            aria-label="Icon menu">
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/carta" >
-                <mat-icon>restaurant_menu</mat-icon>
-                <span>Carta</span>
-            </button>
-            <button mat-menu-item routerLink="/carta" >
-                <mat-icon>restaurant_menu</mat-icon>
-                <span>Carta</span>
-            </button>
-            <button mat-menu-item routerLink="/carta" >
-                <mat-icon>restaurant_menu</mat-icon>
-                <span>Carta</span>
-            </button>
-            <button mat-menu-item routerLink="/carta" >
-                <mat-icon>restaurant_menu</mat-icon>
-                <span>Carta</span>
+            <button mat-menu-item 
+                [routerLink]="route.path"
+                *ngFor="let route of routes" >
+                <mat-icon>{{route.icon}}</mat-icon>
+                <span>{{route.nameRoute}}</span>
             </button>
         </mat-menu>
-        <a class="text-primary badge fs-3 text-decoration-none" routerLink="/carta">Pizza Planet</a>
+        <a class="text-primary badge fs-3 text-decoration-none" 
+            routerLink="/home">
+            Pizza Planet
+        </a>
     </div>
     <a *ngIf="!currentEmail"
         (click)="onClick('login')"        
@@ -33,11 +29,10 @@
     </a>
     <a *ngIf="currentEmail"
         (click)="onClick('logout')" 
-        routerLink="/carta" 
+        routerLink="/main-pizza" 
         type="button" 
         class="link-warning d-flex align-items-center">
         
         Logout
     </a>
 </nav>
-<pre>Usuario:{{ currentEmail }}</pre>

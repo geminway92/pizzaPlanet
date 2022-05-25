@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service';
+
+interface CardsLanding {
+  srcImg: string,
+  nameText: string
+}
 
 @Component({
   selector: 'app-home',
@@ -8,7 +12,11 @@ import { UsersService } from '../../services/users.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private usersService: UsersService) { }
+  cardsLanding: CardsLanding[] = [
+    { srcImg: '../../../assets/img/Pizza-on-wooden-board.jpg', nameText: '¿Aún no has probado nuestras pizzas? ¡Pruébalas!'},
+    { srcImg: '../../../assets/img/deliveryMan.jpg', nameText: '¡Pide para llevar!'},
+  ]
+  constructor() { }
 
   ngOnInit(): void {
   }

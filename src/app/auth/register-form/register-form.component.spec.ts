@@ -22,4 +22,6 @@ describe('RegisterFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('cuando estoy en el login no debe aparecer mi nombre de usuario en la bienvenida')
 });

@@ -1,10 +1,13 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
 
-
-
+interface Routes {
+  path: string,
+  nameRoute: string,
+  icon: string    
+}
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,6 +17,12 @@ export class NavbarComponent implements OnInit {
   constructor( private usersService: UsersService,  private router: Router  ) { }
 
   emailCurrent: string | null = this.usersService.currentUser ;
+  nameCurrent: string | null = this.usersService.currentNameUser;
+  routes: Routes[] = [
+    { path: 'home', nameRoute: 'Inicio' , icon: 'home'},
+    { path: 'main-pizza', nameRoute: 'Carta', icon: 'restaurant_menu'},
+  ]
+  
 
   ngOnInit(): void {
     this.emailCurrent = localStorage.getItem('token')
@@ -26,7 +35,7 @@ export class NavbarComponent implements OnInit {
       this.usersService.logout()
       .then( () => {
         this.emailCurrent = null
-        this.router.navigate(['carta'])
+        this.router.navigate(['home'])
         
       })
       .catch(error => {
@@ -38,6 +47,10 @@ export class NavbarComponent implements OnInit {
 
   get currentEmail(){
     return this.usersService.currentUser
+  }
+
+  get currentName(){
+    return this.usersService.currentNameUser 
   }
 
   
