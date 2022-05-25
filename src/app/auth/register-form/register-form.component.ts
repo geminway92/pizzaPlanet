@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { DialogContentComponent } from '../components/dialog-content/dialog-content.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-form',
@@ -14,7 +15,20 @@ export class RegisterFormComponent {
 
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
   passwordPattern: string = "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-
+  paramsModal = {
+    position: "top-center",
+    timeout: 4000,
+    closeOnClick: true,
+    pauseOnFocusLoss: true,
+    pauseOnHover: true,
+    draggable: true,
+    draggablePercent: 0.6,
+    showCloseButtonOnHover: false,
+    hideProgressBar: true,
+    closeButton: "button",
+    icon: true,
+    rtl: false
+}
   myForm: FormGroup = this.fb.group({
     'name': ['', Validators.required],
     'surname': ['', [ Validators.required]],
@@ -34,7 +48,8 @@ export class RegisterFormComponent {
     public dialog: MatDialog, 
     private fb: FormBuilder,
     private userService: UsersService,
-    private router: Router
+    private router: Router,
+    private toatstr: ToastrService
   ) {}
   
 
@@ -63,13 +78,18 @@ export class RegisterFormComponent {
     console.log(this.myForm.value)
     const { email, password } = this.myForm.value
     await this.userService.addUser(this.myForm.value);
-    await this.userService.register( {email, password })
+    await this.userService.register( { email, password })
       .then( resp => {
         console.log(resp.user)
+        
+        this.toatstr.success('Registro exitoso')
         // localStorage.setItem('token', resp.user)
         this.router.navigate(['/pay'])
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+        this.toatstr.error('No se ha podido realizar el registro')
+      })
     
   }
 

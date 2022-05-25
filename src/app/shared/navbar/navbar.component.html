@@ -23,6 +23,21 @@
         </mat-menu>
         <a class="text-primary badge fs-3 text-decoration-none" routerLink="/carta">Pizza Planet</a>
     </div>
-    <a routerLink="/login" type="button" class="link-warning d-flex align-items-center">Iniciar sesión</a>
-    <a (click)="onClick()" routerLink="/carta" type="button" class="link-warning d-flex align-items-center">Logout</a>
+    <a *ngIf="!currentEmail"
+        (click)="onClick('login')"        
+        routerLink="/login" 
+        type="button" 
+        class="link-warning d-flex align-items-center">
+        
+        Iniciar sesión
+    </a>
+    <a *ngIf="currentEmail"
+        (click)="onClick('logout')" 
+        routerLink="/carta" 
+        type="button" 
+        class="link-warning d-flex align-items-center">
+        
+        Logout
+    </a>
 </nav>
+<pre>Usuario:{{ currentEmail }}</pre>

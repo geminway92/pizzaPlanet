@@ -1,7 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,16 +13,32 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   constructor( private usersService: UsersService,  private router: Router  ) { }
 
+  emailCurrent: string | null = this.usersService.currentUser ;
+
   ngOnInit(): void {
-    console.log(this.usersService.checkAuth())
+    this.emailCurrent = localStorage.getItem('token')
+    this.usersService.checkStateAuth()
   }
 
-  onClick(){
-    this.usersService.logout()
+  onClick( events:string ){
+    if(events === 'logout' ){
+      
+      this.usersService.logout()
       .then( () => {
+        this.emailCurrent = null
         this.router.navigate(['carta'])
+        
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error)
+      })
+    }
+    
   }
+
+  get currentEmail(){
+    return this.usersService.currentUser
+  }
+
   
 }
