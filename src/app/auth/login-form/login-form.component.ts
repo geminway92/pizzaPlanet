@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
+  providers: [FormBuilder]
 })
 export class LoginFormComponent implements OnInit {
   

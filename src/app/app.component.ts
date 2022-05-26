@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'pizzaPlanet';
-  @Input() comment: string  = 'hola comentario'
+
 }

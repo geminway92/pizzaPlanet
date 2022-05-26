@@ -6,7 +6,8 @@ import { Auth, updateProfile,  createUserWithEmailAndPassword, signOut, user } f
 import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@firebase/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class UsersService {
   currentUser: string | null = ''

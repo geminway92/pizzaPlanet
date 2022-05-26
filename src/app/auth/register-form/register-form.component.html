@@ -39,11 +39,11 @@
             </button>  
         </mat-form-field>
         
-        <div class="w-100 p-3">
-            <mat-checkbox class="pe-1"  formControlName="privacityChecked">
+        <div class="w-100 p-3 d-flex gap-2">
+            <mat-checkbox formControlName="privacityChecked" class="mr-2">
             </mat-checkbox>
-            <p class="d-inline-block" >Confirmo que he leído y  acepto la  <a (click)="openDialog()" class="pointer link-info">clásula informativa</a></p>
+            <p class="ml-2">Confirmo que he leído y  acepto la  <a (click)="openDialog()" class="pointer link-info">clásula informativa</a></p>
         </div>
-        <button (click)="onSubmit()" [disabled]="myForm.invalid" class="w-200 btn btn-warning rounded-pill fw-bold mb-3" >Finalizar registro </button>
+        <button (click)="onSubmit()" [disabled]="myForm.invalid" class="w-100 btn btn-warning rounded fw-bold m-4 py-3 shadow-sm" >Finalizar registro </button>
     </form>
 

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-interface CardsLanding {
+interface SlidersImage {
   srcImg: string,
-  nameText: string,
-  alt: string
+  alt: string,
 }
 
 @Component({
@@ -13,13 +12,65 @@ interface CardsLanding {
 })
 export class HomeComponent implements OnInit {
 
-  cardsLanding: CardsLanding[] = [
-    { srcImg: '../../../assets/img/Pizza-on-wooden-board.jpg', nameText: '¿Aún no has probado nuestras pizzas? ¡Pruébalas!', alt: 'Link carta'},
-    { srcImg: '../../../assets/img/deliveryMan.jpg', nameText: '¡Pide para llevar!', alt: 'Link pedir pizza'},
+  cardsLanding: SlidersImage[] = [
+    { srcImg: 'assets/img/offersPizza2Median.png', alt: 'Oferta. Pizza 2 x 1'},
+    { srcImg: 'assets/img/offertePizza2Barbecue.gif',  alt: 'Oferta 2 x 1'},
+    { srcImg: 'assets/img/offers-gift-entry.png',  alt: 'Regalo entrante con la compra de menu'},
   ]
+  tagImg: any = null
+  tagIndicator: any = null
+  positionCurrent: number = 0;
   constructor() { }
 
+
   ngOnInit(): void {
+    this.tagImg = document.querySelectorAll('.carousel-item');
+    this.tagIndicator = document.querySelectorAll('.indicator');
+    
   }
+
+  nextSlider(){
+
+    this.tagImg[this.positionCurrent].classList.remove('active');
+    this.tagIndicator[this.positionCurrent].classList.remove('active');
+    
+    if (this.positionCurrent >= this.tagImg.length - 1) {
+      this.positionCurrent = 0
+    } else {
+      this.positionCurrent++
+    }
+    
+    this.tagImg[this.positionCurrent].classList.toggle('active');
+    this.tagIndicator[this.positionCurrent].classList.toggle('active');
+    
+  }
+
+  backSlider() {
+
+    this.tagImg[this.positionCurrent].classList.remove('active');
+    this.tagIndicator[this.positionCurrent].classList.remove('active');
+
+    if (this.positionCurrent <= 0) {
+      this.positionCurrent = this.tagImg.length - 1
+    } else {
+      this.positionCurrent--
+    }
+
+    this.tagImg[this.positionCurrent].classList.toggle('active');
+    this.tagIndicator[this.positionCurrent].classList.toggle('active');
+  
+  }
+
+  selectImgSlider( positionImg: number ){
+    console.log( this.tagIndicator)
+    this.tagImg[this.positionCurrent].classList.remove('active');
+    this.tagIndicator[ this.positionCurrent ].classList.remove('active');
+
+    this.tagImg[ positionImg ].classList.toggle('active')
+    this.tagIndicator[ positionImg ].classList.toggle('active')
+    this.positionCurrent = positionImg;
+  }
+
+  
 
 }

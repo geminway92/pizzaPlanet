@@ -1,8 +1,10 @@
 <h1 class="bg-primary text-center p-3 fw-bold">Elige una categoria</h1>
 <div class="container d-flex flex-wrap justify-content-between" *ngIf="dataJSONCategory">
     <div *ngFor="let item of dataJSONCategory" 
-        class="d-flex justify-content-between card col-5 m-1 text-center fw-bold shadow-lg rounded">
-       <img class="w-100" [src]="item.url" [alt]="item.alt">
+        class="d-flex justify-content-between card col-5 mx-1 my-3 text-center fw-bold shadow rounded">
+       <div class="d-flex justify-content-center align-items-center h-100 w-100">
+        <img class="w-100 pointer" [src]="item.url" [alt]="item.alt">
+       </div>
        <p>{{item.nameCategory}}</p>
     </div>
 </div>

@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from '../../services/users.service';
 import { DialogContentComponent } from '../components/dialog-content/dialog-content.component';
 import { ToastrService } from 'ngx-toastr';
-import { Auth } from '@angular/fire/auth';
-import { getAuth } from '@firebase/auth';
+
 
 @Component({
   selector: 'app-register-form',

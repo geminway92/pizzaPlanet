@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogContentComponent } from './dialog-content.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DialogContentComponent', () => {
   let component: DialogContentComponent;
@@ -8,7 +9,11 @@ describe('DialogContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogContentComponent ]
+      declarations: [ DialogContentComponent ],
+      imports: [
+        RouterTestingModule
+      ],
+      providers: []
     })
     .compileComponents();
   });

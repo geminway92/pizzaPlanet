@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterFormComponent } from './register-form.component';
+import { AddressesComponent } from './addresses.component';
 
-describe('RegisterFormComponent', () => {
-  let component: RegisterFormComponent;
-  let fixture: ComponentFixture<RegisterFormComponent>;
+describe('AddressesComponent', () => {
+  let component: AddressesComponent;
+  let fixture: ComponentFixture<AddressesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterFormComponent ],
+      declarations: [ AddressesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterFormComponent);
+    fixture = TestBed.createComponent(AddressesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,5 +22,4 @@ describe('RegisterFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

@@ -11,7 +11,8 @@ interface Routes {
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [ ]
 })
 export class NavbarComponent implements OnInit {
   constructor( private usersService: UsersService,  private router: Router  ) { }

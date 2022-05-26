@@ -1,8 +1,11 @@
+
+
 .card {
     border-radius: 1rem !important;
 }
 
- img {
-    border-top-right-radius: 1rem !important;
-    border-top-left-radius: 1rem !important;
- }
+img {
+    // border-top-right-radius: 1rem !important;
+    // border-top-left-radius: 1rem !important;
+    object-fit: cover;
+}
