@@ -2,7 +2,7 @@
 <div class="container d-flex flex-wrap justify-content-between" *ngIf="dataJSONCategory">
     <div *ngFor="let item of dataJSONCategory" 
         class="d-flex justify-content-between card col-5 m-1 text-center fw-bold shadow-lg rounded">
-       <img [src]="item.url" alt="">
+       <img class="w-100" [src]="item.url" [alt]="item.alt">
        <p>{{item.nameCategory}}</p>
     </div>
 </div>

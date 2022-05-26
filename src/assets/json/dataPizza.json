@@ -1,22 +1,27 @@
 [
     {
         "nameCategory": "Top ventas",
-        "url": "../../assets/img/TopSales.png"
+        "url": "../../assets/img/TopSales.png",
+        "alt": "categoría top ventas"
     },
     {
         "nameCategory": "Entrantes",
-        "url": "../../assets/img/Starters.png"
+        "url": "../../assets/img/Starters.png",
+        "alt": "categoría entrantes"
     },
     {
         "nameCategory": "Postres",
-        "url": ">../../assets/img/BrownkieDelivery.png"
+        "url": ">../../assets/img/BrownkieDelivery.png",
+        "alt": "categoría postres"
     },
     {
         "nameCategory": "Pizzas",
-        "url": "../../assets/img/Pizzas.png"
+        "url": "../../assets/img/Pizzas.png",
+        "alt": "categoría pizzas"
     },
     {
         "nameCategory": "Bebidas",
-        "url": "https://www.dominospizza.es/images/Pepsi_148005_0_ES.png"
+        "url": "https://www.dominospizza.es/images/Pepsi_148005_0_ES.png",
+        "alt": "categoría bebidas"
     }
 ]
