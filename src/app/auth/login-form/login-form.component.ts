@@ -25,7 +25,7 @@ export class LoginFormComponent implements OnInit {
   constructor( private fb: FormBuilder, private usersService: UsersService, private router: Router, private toastr: ToastrService  ) { }
   
   emailCurrent: string | null = '' ;
-  @Input() private comment = 'a';
+  
   get currentEmail(){
     return this.emailCurrent
   }

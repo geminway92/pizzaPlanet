@@ -21,13 +21,4 @@ input.example-right-align {
     .mat-form-field .mat-form-field-flex{
       background-color: white; 
     }
-  }
-
-
-
-// change the background of the autocomplete
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }

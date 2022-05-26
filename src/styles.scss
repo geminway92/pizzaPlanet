@@ -2,11 +2,23 @@
 
 /* Importing Bootstrap SCSS file. */
 $primary: #78FFA5;
+$info: #0a3499;
+
+
+
 
 @import '~bootstrap/scss/bootstrap';
 @import './assets/scss/main.scss';
 @import '~ngx-toastr/toastr';
+@import '~@angular/material/theming';
+@include mat-core();
 
+//Change color material
+$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-accent:  mat-palette($mat-green, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
 
 
 html, body { 
@@ -15,10 +27,14 @@ html, body {
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $bg-transparent: transparent;
 
+a{
+    color: $info;
+}
 
 form.card {
     border-radius: 1rem;
 }
+
 
 .pointer{
     cursor: pointer;
@@ -27,3 +43,15 @@ form.card {
 .scroll{
     overflow-x: scroll;
 }
+
+// change the background of the autocomplete
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+
+
+
+
