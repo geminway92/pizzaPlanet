@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+
 
 interface SlidersImage {
   srcImg: string,
@@ -20,14 +21,39 @@ export class HomeComponent implements OnInit {
   tagImg: any = null
   tagIndicator: any = null
   positionCurrent: number = 0;
+  imgSliderArray: SlidersImage[] = [
+    { srcImg: 'assets/img/PizzaHawaiana.png', alt: 'Pizza Hawaina Crispy'},
+    { srcImg: 'assets/img/PizzaParmesanaCarbonara.png', alt: 'Pizza Parmesana Carbonara'},
+    { srcImg: 'assets/img/PizzaTexasBBQCrispy.png', alt: 'Pizza Cremosa Barbacoa'},
+    { srcImg: 'assets/img/PizzaBuffaloChicken.png', alt: 'Pizza Buffalo'},
+    { srcImg: 'assets/img/PizzaCremozzaBourbon.png', alt: 'Pizza Bourbon'},
+  ]
+  imgSliderArray2: SlidersImage[] = [
+    { srcImg: 'assets/img/PizzaPecadoCarnal.png', alt: 'Pizza Pecado Carnal'},
+    { srcImg: 'assets/img/PizzaCarbonara.png', alt: 'Pizza Carbonara'},
+    { srcImg: 'assets/img/PizzaExtravaganzza.png', alt: 'Pizza Extravanzza'},
+    { srcImg: 'assets/img/PizzaBarbacoa.png', alt: 'Pizza Buffalo'},
+    { srcImg: 'assets/img/PizzaHawaianaPlus.png', alt: 'Pizza Hawaina Plus'},
+    { srcImg: 'assets/img/PizzaPolloParrilla.png', alt: 'Pizza Pollo Parrilla'},
+    { srcImg: 'assets/img/PizzaCuatroQuesos.png', alt: 'Pizza Cuatro Quesos'},
+    { srcImg: 'assets/img/PizzaTonyPepperoni.png', alt: 'Pizza Tony Pepperoni'},
+    { srcImg: 'assets/img/PizzaPatanegra.png', alt: 'Pizza PataNegra'},
+    { srcImg: 'assets/img/PizzaCampiña.jpg', alt: 'Pizza Campiña'},
+  ]
+  imgSliderArray3: SlidersImage[] = [
+    { srcImg: 'assets/img/PizzaMargarita.png', alt: 'Pizza Margarita'},
+    { srcImg: 'assets/img/PizzaPorMitades.png', alt: 'Elige por mitades'},
+  ]
+
   constructor() { }
 
 
   ngOnInit(): void {
-    this.tagImg = document.querySelectorAll('.carousel-item');
-    this.tagIndicator = document.querySelectorAll('.indicator');
-    
+    this.tagImg = document.querySelectorAll('#carouselOffers .carousel-item');
+    this.tagIndicator = document.querySelectorAll('#carouselOffers .indicator');
   }
+
+  
 
   nextSlider(){
 

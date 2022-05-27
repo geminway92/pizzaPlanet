@@ -19,6 +19,8 @@ import { MainPizzaComponent } from './pages/main-pizza/main-pizza.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { AddressesComponent } from './pages/addresses/addresses.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { SliderComponent } from './components/slider/slider.component';
+import { SliderScrollComponent } from './components/slider-scroll/slider-scroll.component';
 
 
 
@@ -34,6 +36,8 @@ import { APP_BASE_HREF } from '@angular/common';
     MainPizzaComponent,
     OrdersComponent,
     AddressesComponent,
+    SliderComponent,
+    SliderScrollComponent,
     
   ],
   imports: [
