@@ -55,7 +55,15 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
-
-
+// Customize scroll bar
+::-webkit-scrollbar {
+    height: 10px;
+    overflow: auto;
+ }
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c8c5c5;
+    height: 5px;
+ }
 
 
