@@ -7,12 +7,12 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../../../environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router, Routes } from '@angular/router';
-import {AppRoutingModule} from '../../app-routing.module';
+
 import { HomeComponent } from '../../home/home.component';
-import { PayComponent } from '../pay/pay.component';
+import { PayComponent } from '../../pay/pay.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { Location } from '@angular/common';
-import { Inject } from '@angular/core';
+
 import { LoginFormComponent } from '../../auth/login-form/login-form.component';
 
 
