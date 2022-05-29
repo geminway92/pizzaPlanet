@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router, Routes } from '@angular/router';
 import {AppRoutingModule} from '../../app-routing.module';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from '../../home/home.component';
 import { MainPizzaComponent } from '../main-pizza/main-pizza.component';
 import { AddressesComponent } from '../addresses/addresses.component';
 import { PayComponent } from '../pay/pay.component';
