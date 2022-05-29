@@ -13,25 +13,26 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthModule } from './auth/auth.module';
 import { environment } from '../environments/environment';
-import { OrdersComponent } from './pages/orders/orders.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { AddressesModule } from './addresses/addresses.module';
+import { OrdersModule } from './orders/orders.module';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    OrdersComponent,
-    
   ],
   imports: [
     NgbModule,
     BrowserModule,
     AppRoutingModule,
+    OrdersModule,
     HomeModule,
     AuthModule,
+    OrdersModule,
     AddressesModule,
     BrowserAnimationsModule,
     HttpClientModule,

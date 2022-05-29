@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service';
+
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-orders',
@@ -27,7 +28,7 @@ export class OrdersComponent implements OnInit {
     if( userUiD ){
       return this.router.navigate(['/addresses'])
     }else {
-      return this.router.navigate(['/login'])
+      return this.router.navigate(['/auth/login'])
     }
 
   }

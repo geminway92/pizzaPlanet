@@ -1,19 +1,19 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { OrdersComponent } from './orders.component';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../services/users.service';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router, Routes } from '@angular/router';
 
-import { HomeComponent } from '../../home/home.component';
-import { PayComponent } from '../../pay/pay.component';
+import { HomeComponent } from '../home/home.component';
+import { PayComponent } from '../pay/pay.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { Location } from '@angular/common';
 
-import { LoginFormComponent } from '../../auth/login-form/login-form.component';
+import { LoginFormComponent } from '../auth/login-form/login-form.component';
 
 
 describe('OrdersComponent', () => {
@@ -25,10 +25,9 @@ describe('OrdersComponent', () => {
   const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
-    { path: 'main-pizza', component: MainPizzaComponent },
-    { path: 'addresses', component: AddressesComponent },
+ 
     { path: 'pay', component: PayComponent, ...canActivate(() => redirectUnauthorizedTo(['/home'])) },
-    { path: 'auth', loadChildren: () => import('../../auth/auth.module').then(m => m.AuthModule)},
+    { path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)},
     { path: 'login', component: LoginFormComponent}
   ];
   

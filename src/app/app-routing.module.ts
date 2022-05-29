@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'main-category', loadChildren: () => import('./main-category/main-category.module').then(m => m.MainCategoryModule)},
   { path: 'addresses', loadChildren: () => import('./addresses/addresses.module').then(m => m.AddressesModule) },
   { path: 'pay',loadChildren: () => import('./pay/pay.module').then(m => m.PayModule), ...canActivate(() => redirectUnauthorizedTo(['/home'])) },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
+  { path: 'orders',loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
