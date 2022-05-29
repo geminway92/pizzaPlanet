@@ -21,6 +21,8 @@ import { AddressesComponent } from './pages/addresses/addresses.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { SliderComponent } from './components/slider/slider.component';
 import { SliderScrollComponent } from './components/slider-scroll/slider-scroll.component';
+import { UsersService } from './services/users.service';
+
 
 
 
@@ -51,6 +53,8 @@ import { SliderScrollComponent } from './components/slider-scroll/slider-scroll.
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+  ],
+  exports: [
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]

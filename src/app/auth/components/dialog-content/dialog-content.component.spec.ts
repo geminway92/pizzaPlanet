@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogContentComponent } from './dialog-content.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialogContent } from '@angular/material/dialog';
 
 describe('DialogContentComponent', () => {
   let component: DialogContentComponent;
@@ -9,7 +10,7 @@ describe('DialogContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogContentComponent ],
+      declarations: [MatDialogContent ],
       imports: [
         RouterTestingModule
       ],

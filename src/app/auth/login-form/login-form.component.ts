@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
-  providers: [FormBuilder]
+  providers: []
 })
 export class LoginFormComponent implements OnInit {
   
@@ -46,7 +46,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubtmit(){
-    this.usersService.login(this.myForm.value)
+    const { email, password } = this.myForm.value;
+    this.usersService.login( email, password)
       .then( resp => {
         this.emailCurrent = resp.user.email
         this.router.navigate(['/main-pizza'])

@@ -13,13 +13,6 @@ import { DialogContentComponent } from './components/dialog-content/dialog-conte
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     MainComponent,

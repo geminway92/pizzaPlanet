@@ -6,7 +6,14 @@ import { provideFirestore, getFirestore, } from '@angular/fire/firestore';
 import { UsersService } from '../../services/users.service';
 import { environment } from '../../../environments/environment';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { AppRoutingModule } from './app-routing.module';
+import { AuthRoutingModule } from '../auth-routing.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ToastrService, ToastrModule } from 'ngx-toastr';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -15,13 +22,25 @@ describe('LoginFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginFormComponent ],
-      providers: [ UsersService],
+      providers: [ 
+        UsersService, 
+        ToastrService, 
+      ],
       imports: [
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideAuth(() => getAuth()),
         provideFirestore(() => getFirestore()),
-        AppRoutingModule
+        AuthRoutingModule,
+        RouterTestingModule,
+        ToastrModule.forRoot(),
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        FormsModule,
+        MatInputModule,
+        BrowserAnimationsModule
         
+      
       ]
     })
     .compileComponents();

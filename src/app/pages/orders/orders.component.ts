@@ -23,11 +23,13 @@ export class OrdersComponent implements OnInit {
   
   goRoute(){
     const userUiD = this.usersService.checkAuth()
+
     if( userUiD ){
       return this.router.navigate(['/addresses'])
     }else {
       return this.router.navigate(['/login'])
     }
+
   }
 
 }
