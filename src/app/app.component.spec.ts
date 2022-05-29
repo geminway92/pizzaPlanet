@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { SliderScrollComponent } from './slider-scroll/slider-scroll.component';
 import { SliderComponent } from './slider/slider.component';
 
-import { OrdersComponent } from './pages/orders/orders.component';
+import { OrdersComponent } from './orders/orders.component';
 import { PayComponent } from './pay/pay.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';

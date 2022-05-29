@@ -17,7 +17,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { AddressesModule } from './addresses/addresses.module';
 import { OrdersModule } from './orders/orders.module';
-import { OrdersComponent } from './orders/orders.component';
+
 
 
 @NgModule({
