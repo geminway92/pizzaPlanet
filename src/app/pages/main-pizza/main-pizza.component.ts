@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import CategoryFood from 'src/app/interfaces/categoryFood.interface';
 import dataJSON from '../../../assets/json/dataPizza.json';
 
 @Component({
@@ -7,7 +8,7 @@ import dataJSON from '../../../assets/json/dataPizza.json';
   styleUrls: ['./main-pizza.component.scss']
 })
 export class MainPizzaComponent implements OnInit {
-  dataJSONCategory: any = dataJSON;
+  dataJSONCategory: CategoryFood[] = dataJSON;
 
   constructor() { }
 

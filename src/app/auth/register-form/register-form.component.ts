@@ -80,7 +80,7 @@ export class RegisterFormComponent {
   async onSubmit(){
     const { email, password, name } = this.myForm.value
     await this.userService.addUser(this.myForm.value);
-    await this.userService.register( { email, password, name })
+    await this.userService.register( email, password, name )
       .then( resp => {
         this.toatstr.success(`Registro exitoso ${ this.myForm.controls['name'].value}`)
         this.router.navigate(['/pay'])

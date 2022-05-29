@@ -11,7 +11,7 @@ import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@fireba
 })
 export class UsersService {
   currentUser: string | null = ''
-  currentNameUser: any= '';
+  currentNameUser: string = '';
   constructor( private firestore: Firestore, private auth: Auth ) {
     this.currentUser = localStorage.getItem('token')!
   }
@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   // Auth
-  async register( {email, password, name }: any){
+  async register( email:string, password:string, name:string ) {
     this.currentNameUser = name;
     const resp = await createUserWithEmailAndPassword(this.auth, email, password);
     this.postProfile()
@@ -37,7 +37,7 @@ export class UsersService {
     return resp;
   }
 
-  login( {email, password }: any ){
+  login( email: string , password: string ){
     return signInWithEmailAndPassword( this.auth, email, password );
   }
 

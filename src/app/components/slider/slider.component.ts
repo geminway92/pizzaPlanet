@@ -10,27 +10,21 @@ interface SlidersImage {
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent {
 
   cardsLanding: SlidersImage[] = [
     { srcImg: 'assets/img/offersPizza2Median.png', alt: 'Oferta. Pizza 2 x 1'},
     { srcImg: 'assets/img/offertePizza2Barbecue.gif',  alt: 'Oferta 2 x 1'},
     { srcImg: 'assets/img/offers-gift-entry.png',  alt: 'Regalo entrante con la compra de menu'},
   ]
-  tagImg: any = null
-  tagIndicator: any = null
+  tagImg: NodeListOf<Element> = document.querySelectorAll('#carouselSpecialties .carousel-item');;
+  tagIndicator: NodeListOf<Element> = document.querySelectorAll('#carouselSpecialties .indicator');;
   positionCurrent: number = 0;
   constructor() { }
 
 
-  ngOnInit(): void {
-    this.tagImg = document.querySelectorAll('#carouselSpecialties .carousel-item');
-    this.tagIndicator = document.querySelectorAll('#carouselSpecialties .indicator');
-    
-  }
-
   nextSlider(){
-
+      console.log(this.tagIndicator, this.tagImg, 'mira lo que viene')
     this.tagImg[this.positionCurrent].classList.remove('active');
     this.tagIndicator[this.positionCurrent].classList.remove('active');
     

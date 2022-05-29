@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 
 interface SlidersImage {
@@ -9,17 +9,17 @@ interface SlidersImage {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   cardsLanding: SlidersImage[] = [
     { srcImg: 'assets/img/offersPizza2Median.png', alt: 'Oferta. Pizza 2 x 1'},
     { srcImg: 'assets/img/offertePizza2Barbecue.gif',  alt: 'Oferta 2 x 1'},
     { srcImg: 'assets/img/offers-gift-entry.png',  alt: 'Regalo entrante con la compra de menu'},
   ]
-  tagImg: any = null
-  tagIndicator: any = null
+  tagImg: NodeListOf<Element> = document.querySelectorAll('#carouselOffers .carousel-item');
+  tagIndicator: NodeListOf<Element> = document.querySelectorAll('#carouselOffers .indicator')
   positionCurrent: number = 0;
   imgSliderArray: SlidersImage[] = [
     { srcImg: 'assets/img/PizzaHawaiana.png', alt: 'Pizza Hawaina Crispy'},
@@ -46,13 +46,6 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor() { }
-
-
-  ngOnInit(): void {
-    this.tagImg = document.querySelectorAll('#carouselOffers .carousel-item');
-    this.tagIndicator = document.querySelectorAll('#carouselOffers .indicator');
-  }
-
   
 
   nextSlider(){
