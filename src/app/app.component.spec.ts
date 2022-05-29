@@ -7,8 +7,7 @@ import { FirestoreModule, Firestore, getFirestore, provideFirestore } from '@ang
 import { HomeComponent } from './home/home.component';
 import { SliderScrollComponent } from './slider-scroll/slider-scroll.component';
 import { SliderComponent } from './slider/slider.component';
-import { AddressesComponent } from './pages/addresses/addresses.component';
-import { MainPizzaComponent } from './pages/main-pizza/main-pizza.component';
+
 import { OrdersComponent } from './pages/orders/orders.component';
 import { PayComponent } from './pages/pay/pay.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -46,9 +45,7 @@ describe('AppComponent', () => {
         AppComponent,
         HomeComponent,
         PayComponent,
-        MainPizzaComponent,
         OrdersComponent,
-        AddressesComponent,
         SliderComponent,
         SliderScrollComponent,
       ],

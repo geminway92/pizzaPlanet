@@ -14,21 +14,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthModule } from './auth/auth.module';
 import { environment } from '../environments/environment';
 import { PayComponent } from './pages/pay/pay.component';
-import { MainPizzaComponent } from './pages/main-pizza/main-pizza.component';
 import { OrdersComponent } from './pages/orders/orders.component';
-import { AddressesComponent } from './pages/addresses/addresses.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { HomeModule } from './home/home.module';
-import { SliderModule } from './slider/slider.module';
-import { SliderScrollModule } from './slider-scroll/slider-scroll.module';
-import { HomeRoutingModule } from './home/home-routing.module';
-
-
-
-
-
-
-
+import { AddressesModule } from './addresses/addresses.module';
 
 
 @NgModule({
@@ -36,20 +25,19 @@ import { HomeRoutingModule } from './home/home-routing.module';
     AppComponent,
     NavbarComponent,
     PayComponent,
-    MainPizzaComponent,
     OrdersComponent,
-    AddressesComponent
     
   ],
   imports: [
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
+    HomeModule,
     AuthModule,
-    HomeRoutingModule,
+    AddressesModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    MaterialModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

@@ -9,6 +9,7 @@ import { SliderScrollModule } from '../slider-scroll/slider-scroll.module';
 import { HomeComponent } from '../home/home.component';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -21,7 +22,7 @@ import { HomeComponent } from '../home/home.component';
    
   ],
   exports:[
-  ]
+  ],
 })
 export class HomeModule { }
 

@@ -50,7 +50,7 @@ export class LoginFormComponent implements OnInit {
     this.usersService.login( email, password)
       .then( resp => {
         this.emailCurrent = resp.user.email
-        this.router.navigate(['/main-pizza'])
+        this.router.navigate(['/main-category'])
       })
       .catch( error => {
         this.toastr.error('No se ha podido iniciar sesión', 'Error')

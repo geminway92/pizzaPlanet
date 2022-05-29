@@ -21,7 +21,7 @@
     </div>
     <a *ngIf="!currentEmail"
         (click)="onClick('login')"        
-        routerLink="/login" 
+        routerLink="auth/login" 
         type="button" 
         class="link-warning d-flex align-items-center">
         
@@ -29,7 +29,7 @@
     </a>
     <a *ngIf="currentEmail"
         (click)="onClick('logout')" 
-        routerLink="/main-pizza" 
+        routerLink="/main-category" 
         type="button" 
         class="link-warning d-flex align-items-center">
         

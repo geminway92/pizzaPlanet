@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   nameCurrent: string | null = this.usersService.currentNameUser;
   routes: Routes[] = [
     { path: 'home', nameRoute: 'Inicio' , icon: 'home'},
-    { path: 'main-pizza', nameRoute: 'Carta', icon: 'restaurant_menu'},
+    { path: 'main-category', nameRoute: 'Carta', icon: 'restaurant_menu'},
   ]
   
 
