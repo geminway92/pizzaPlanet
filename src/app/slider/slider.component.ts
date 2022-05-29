@@ -10,21 +10,26 @@ interface SlidersImage {
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent {
+export class SliderComponent implements OnInit {
 
   cardsLanding: SlidersImage[] = [
     { srcImg: 'assets/img/offersPizza2Median.png', alt: 'Oferta. Pizza 2 x 1'},
     { srcImg: 'assets/img/offertePizza2Barbecue.gif',  alt: 'Oferta 2 x 1'},
     { srcImg: 'assets/img/offers-gift-entry.png',  alt: 'Regalo entrante con la compra de menu'},
   ]
-  tagImg: NodeListOf<Element> = document.querySelectorAll('#carouselSpecialties .carousel-item');;
-  tagIndicator: NodeListOf<Element> = document.querySelectorAll('#carouselSpecialties .indicator');;
+  tagImg!: NodeListOf<Element>;
+  tagIndicator!: NodeListOf<Element>;
   positionCurrent: number = 0;
+
   constructor() { }
+
+  ngOnInit(): void {
+    this.tagImg = document.querySelectorAll('#carouselSpecialties .carousel-item');
+    this.tagIndicator = document.querySelectorAll('#carouselSpecialties .indicator');
+  }
 
 
   nextSlider(){
-      console.log(this.tagIndicator, this.tagImg, 'mira lo que viene')
     this.tagImg[this.positionCurrent].classList.remove('active');
     this.tagIndicator[this.positionCurrent].classList.remove('active');
     
@@ -36,8 +41,6 @@ export class SliderComponent {
     
     this.tagImg[this.positionCurrent].classList.toggle('active');
     this.tagIndicator[this.positionCurrent].classList.toggle('active');
-    console.log(this.tagImg)
-    console.log(this.tagIndicator)
   }
 
   backSlider() {
@@ -57,14 +60,13 @@ export class SliderComponent {
   }
 
   selectImgSlider( positionImg: number ){
-    console.log( this.tagIndicator)
+    
     this.tagImg[this.positionCurrent].classList.remove('active');
     this.tagIndicator[ this.positionCurrent ].classList.remove('active');
 
     this.tagImg[ positionImg ].classList.toggle('active')
     this.tagIndicator[ positionImg ].classList.toggle('active')
     this.positionCurrent = positionImg;
-    console.log(this.tagImg)
   }
 
 }
