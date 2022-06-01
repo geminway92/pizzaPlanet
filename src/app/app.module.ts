@@ -20,6 +20,8 @@ import { OrdersModule } from './orders/orders.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { NavLocationComponent } from './nav-location/nav-location.component';
+import { NavLocationModule } from './nav-location/nav-location.module';
 
 
 
@@ -36,6 +38,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
     HomeModule,
     AuthModule,
     DashboardRoutingModule,
+    NavLocationModule,
     SidebarModule,
     AddressesModule,
     BrowserAnimationsModule,

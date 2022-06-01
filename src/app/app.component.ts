@@ -15,15 +15,13 @@ export class AppComponent implements OnInit  {
     private usersService: UsersService,
     private router: Router
   ){
-    const currentRole = localStorage.getItem('role')
-    this.isEmployee = currentRole === 'employee' 
+    this.currentRole = localStorage.getItem('role')
   }
 
   title = 'pizzaPlanet';
   currentUser: Object | null =  localStorage.getItem('token');
-  isCustomer: boolean = false;
-  isAdmin: boolean = false;
-  isEmployee: Boolean = false;
+  currentRole: String | null = '';
+
 
   ngOnInit(): void {
     this.usersService.checkStateAuth()
@@ -31,7 +29,7 @@ export class AppComponent implements OnInit  {
   }
 
   goRouteEmployeed(){
-    if(this.isEmployee || this.isAdmin){
+    if(this.currentRole === 'employee' || this.currentRole === 'admin'){
       this.router.navigate(['dashboard'])
     }
   }
