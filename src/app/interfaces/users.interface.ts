@@ -6,5 +6,4 @@ export default interface Users {
     tel: string,
     password: string,
     privacityChecked: boolean,
-    employees: boolean
 }

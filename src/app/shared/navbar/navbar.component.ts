@@ -16,8 +16,9 @@ interface Routes {
 })
 export class NavbarComponent implements OnInit {
   constructor( private usersService: UsersService,  private router: Router  ) { }
-
+  
   emailCurrent: string | null = this.usersService.currentUser ;
+  
   nameCurrent: string | null = this.usersService.currentNameUser;
   routes: Routes[] = [
     { path: 'home', nameRoute: 'Inicio' , icon: 'home'},
@@ -37,6 +38,8 @@ export class NavbarComponent implements OnInit {
       .then( () => {
         this.emailCurrent = null
         this.router.navigate(['home'])
+
+        return 
         
       })
       .catch(error => {

@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'pay',loadChildren: () => import('./pay/pay.module').then(m => m.PayModule), ...canActivate(() => redirectUnauthorizedTo(['/home'])) },
   { path: 'orders',loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)},
   { path: '**', redirectTo: 'home'}
 ];
 

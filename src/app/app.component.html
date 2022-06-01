@@ -1,6 +1,8 @@
-<app-navbar></app-navbar>
-<div class="container">
-    <app-orders></app-orders>
+<div *ngIf="!isEmployeed" >
+    <app-navbar></app-navbar>
+    <div class="container">
+        <app-orders></app-orders>
+    </div>
 </div>
-
+<!-- <pre>{{currentEmailLogin}}</pre> -->
 <router-outlet></router-outlet>

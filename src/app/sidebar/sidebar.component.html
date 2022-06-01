@@ -1,0 +1,34 @@
+<div class="bg-primary d-flex flex-column align-items-center w-15 h-100 rounded-special">
+    <div class="d-flex flex-column justify-content-end align-items-center h-50">
+
+        <button 
+            class="pointer border-0 w-100"
+            [ngClass]="{'active': buttonSelect === 'home'}"
+            (click)="activeButton('home')"
+            aria-label="Icono Inicio">
+            <mat-icon class="my-2 pointer">home</mat-icon><br>
+            <span>Home</span>
+        </button>
+        <button  
+            class="pointer border-0 w-100  my-4"
+            aria-label="Icono Empleados"
+            (click)="activeButton('employeed')"
+            [ngClass]="{'active': buttonSelect === 'employeed'}">
+            
+            <mat-icon>work icon</mat-icon><br>
+            <span>Empleados</span>
+        </button>
+        <button  
+            class="pointer border-0 w-100 my-2"
+            aria-label="Icono Pedidos"
+            (click)="activeButton('orders')"
+            [ngClass]="{'active': buttonSelect === 'orders'}">
+            <img src="../../assets/SVG/fluent_person-money-24-filled.svg" alt="Icon orders"><br>
+           <span>Pedidos</span>
+        </button>  
+    </div>
+    <div class="position-relative h-50">
+
+        <img class="photo-profile position-absolute bottom-0 translate-middle" src="../../assets/img/admin-profile.png" alt="Foto perfil">
+    </div>
+</div>

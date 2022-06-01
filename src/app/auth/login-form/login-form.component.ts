@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Users from 'src/app/interfaces/users.interface';
 import { UsersService } from '../../services/users.service';
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   providers: []
 })
 export class LoginFormComponent implements OnInit {
+  constructor( private fb: FormBuilder, private usersService: UsersService, private router: Router, private toastr: ToastrService  ) { }
   
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
   users: Users[] = [];
@@ -22,11 +23,11 @@ export class LoginFormComponent implements OnInit {
   
   hide = true;
   
-  constructor( private fb: FormBuilder, private usersService: UsersService, private router: Router, private toastr: ToastrService  ) { }
   
   emailCurrent: string | null = '' ;
   
   get currentEmail(){
+    console.log('es reactivo')
     return this.emailCurrent
   }
   
@@ -34,6 +35,7 @@ export class LoginFormComponent implements OnInit {
     this.emailCurrent = localStorage.getItem('token')
     this.usersService.checkStateAuth()
   }
+
 
   getErrorMessage() {
     if (this.myForm.controls['email'].hasError('required')) {

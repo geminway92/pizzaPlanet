@@ -12,6 +12,7 @@ import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@fireba
 export class UsersService {
   currentUser: string | null = ''
   currentNameUser: string = '';
+
   constructor( private firestore: Firestore, private auth: Auth ) {
     this.currentUser = localStorage.getItem('token')!
   }
@@ -19,12 +20,12 @@ export class UsersService {
 
   // Firestore
   addUser( user: Users){
-    const userRef = collection( this.firestore, 'employees' );
+    const userRef = collection( this.firestore, 'customers' );
     return addDoc( userRef, user )
   }
 
   getUser(): Observable<Users[]>{
-    const userRef = collection( this.firestore, 'employees' );
+    const userRef = collection( this.firestore, 'customers' );
     return collectionData(userRef, { idField: 'id' }) as Observable<Users[]>
   }
 
