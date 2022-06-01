@@ -12,6 +12,7 @@ import {MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   exports: [
     MatMenuModule,
@@ -25,7 +26,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }
