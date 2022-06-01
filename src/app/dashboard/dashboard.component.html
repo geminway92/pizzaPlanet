@@ -1,3 +1,7 @@
-<div class="container mx-2 h-75">
-    <app-sidebar></app-sidebar>
+<h1 class="fw-bold">Home</h1>
+<div class="d-flex p-2 flex-wrap gap-4">
+    <app-card-order *ngFor="let card of cardOrdes"
+        [cardData]="card"
+    >
+    </app-card-order>
 </div>

@@ -4,6 +4,7 @@ import Users from '../interfaces/users.interface';
 import { Observable } from 'rxjs';
 import { Auth, updateProfile,  createUserWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
 import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@firebase/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UsersService {
   currentUser: string | null = ''
   currentNameUser: string = '';
 
-  constructor( private firestore: Firestore, private auth: Auth ) {
+  constructor( private firestore: Firestore, private auth: Auth, private router: Router ) {
     this.currentUser = localStorage.getItem('token')!
   }
   
@@ -25,7 +26,7 @@ export class UsersService {
   }
 
   getUser(): Observable<Users[]>{
-    const userRef = collection( this.firestore, 'customers' );
+    const userRef = collection( this.firestore, 'employees' );
     return collectionData(userRef, { idField: 'id' }) as Observable<Users[]>
   }
 
@@ -47,6 +48,8 @@ export class UsersService {
   }
 
   logout() {
+    localStorage.removeItem('role')
+    this.router.navigate(['/'])
     return signOut( this.auth );
   }
 

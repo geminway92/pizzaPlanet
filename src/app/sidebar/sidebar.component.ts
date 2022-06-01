@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private userService: UsersService ) { }
   buttonSelect: string = 'home';
   ngOnInit(): void {
   }
 
   activeButton( selector: string){
     this.buttonSelect = selector;
+  }
+
+  logout(){
+    localStorage.removeItem('role')
+    this.userService.logout();
   }
 }

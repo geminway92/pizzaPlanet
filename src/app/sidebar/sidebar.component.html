@@ -1,4 +1,4 @@
-<div class="bg-primary d-flex flex-column align-items-center w-15 h-100 rounded-special">
+<div class="sidebar shadow-sm bg-primary d-flex flex-column align-items-center h-100 rounded-special">
     <div class="d-flex flex-column justify-content-end align-items-center h-50">
 
         <button 
@@ -7,7 +7,7 @@
             (click)="activeButton('home')"
             aria-label="Icono Inicio">
             <mat-icon class="my-2 pointer">home</mat-icon><br>
-            <span>Home</span>
+            <span>Dashboard</span>
         </button>
         <button  
             class="pointer border-0 w-100  my-4"
@@ -27,7 +27,8 @@
            <span>Pedidos</span>
         </button>  
     </div>
-    <div class="position-relative h-50">
+    <div (click)="logout()" 
+        class="position-relative h-50 pointer">
 
         <img class="photo-profile position-absolute bottom-0 translate-middle" src="../../assets/img/admin-profile.png" alt="Foto perfil">
     </div>

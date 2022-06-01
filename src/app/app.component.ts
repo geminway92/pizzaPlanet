@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UsersService } from './services/users.service';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { LoginFormComponent } from './auth/login-form/login-form.component';
+import { BehaviorSubject, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,16 @@ export class AppComponent implements OnInit  {
   constructor( 
     private usersService: UsersService,
     private router: Router
-  ){}
+  ){
+    const currentRole = localStorage.getItem('role')
+    this.isEmployee = currentRole === 'employee' 
+  }
 
   title = 'pizzaPlanet';
   currentUser: Object | null =  localStorage.getItem('token');
-  isEmployeed: boolean = true ;
+  isCustomer: boolean = false;
+  isAdmin: boolean = false;
+  isEmployee: Boolean = false;
 
   ngOnInit(): void {
     this.usersService.checkStateAuth()
@@ -25,7 +31,7 @@ export class AppComponent implements OnInit  {
   }
 
   goRouteEmployeed(){
-    if(this.isEmployeed){
+    if(this.isEmployee || this.isAdmin){
       this.router.navigate(['dashboard'])
     }
   }

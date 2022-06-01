@@ -1,8 +1,29 @@
-<div *ngIf="!isEmployeed" >
+<div *ngIf="isEmployee || isAdmin; else customer" class="h-100">
+    <div class="container py-4 d-flex align-items-center h-100">
+        <div class="d-flex bg-main shadow rounded-special w-100 h-100">
+            <app-sidebar></app-sidebar>
+            <div class="container px-4 scroll-y">
+                
+                <!-- //TODO Crear otro componente -->
+                <div class="d-flex align-items-center mb-2 mt-4">
+                    <mat-icon color="primary">home</mat-icon>
+                    <mat-icon color="primary">chevron_right</mat-icon>
+                    <span color="primary">Dashboard</span>
+                </div>
+                
+                <router-outlet></router-outlet>
+            </div>
+                
+        </div>
+    </div>
+</div>
+<ng-template #customer>
     <app-navbar></app-navbar>
     <div class="container">
         <app-orders></app-orders>
+        <router-outlet></router-outlet>
     </div>
-</div>
+</ng-template>
+
+
 <!-- <pre>{{currentEmailLogin}}</pre> -->
-<router-outlet></router-outlet>

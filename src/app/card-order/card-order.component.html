@@ -1,0 +1,6 @@
+<mat-card class="p-4">
+    <mat-card-title class="mb-4 fs-5 fw-bold">{{cardData.nameProcess | uppercase }}</mat-card-title>
+    <div  class="orders-number d-flex gap-3 flex-wrap">
+        <span *ngFor="let order of cardData.orders" [ngStyle]="{'background': cardData.color}" class="pointer p-2 border fs-4 fw-bold rounded d-flex justify-content-center align-items-center containerNumber">{{ order.orderNumber }}</span>
+    </div>
+</mat-card>

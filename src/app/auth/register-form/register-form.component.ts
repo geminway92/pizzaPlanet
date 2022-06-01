@@ -44,7 +44,6 @@ export class RegisterFormComponent {
     'password': ['', [ Validators.required, Validators.minLength(8) ]],
     'tel': ['', [ Validators.required, Validators.minLength(11), Validators.maxLength(11) ]],
     'privacityChecked': [ false, [ Validators.requiredTrue ]]
-
   })
 
   constructor(
@@ -78,6 +77,7 @@ export class RegisterFormComponent {
   
   // TODO hacer que cree unos datos para saber si es admin o no
   async onSubmit(){
+    this.myForm.value.role = 'customer' 
     const { email, password, name } = this.myForm.value
     await this.userService.addUser(this.myForm.value);
     await this.userService.register( email, password, name )

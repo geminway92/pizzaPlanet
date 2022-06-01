@@ -17,6 +17,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { AddressesModule } from './addresses/addresses.module';
 import { OrdersModule } from './orders/orders.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 
 
@@ -32,7 +35,8 @@ import { OrdersModule } from './orders/orders.module';
     OrdersModule,
     HomeModule,
     AuthModule,
-    OrdersModule,
+    DashboardRoutingModule,
+    SidebarModule,
     AddressesModule,
     BrowserAnimationsModule,
     HttpClientModule,
