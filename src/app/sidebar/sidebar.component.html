@@ -3,8 +3,8 @@
 
         <button 
             class="pointer border-0 w-100"
-            [ngClass]="{'active': buttonSelect === 'home'}"
-            (click)="activeButton('home')"
+            [ngClass]="{'active': buttonSelect === 'dashboard'}"
+            (click)="goRoute('dashboard')"
             aria-label="Icono Inicio">
             <mat-icon class="my-2 pointer">home</mat-icon><br>
             <span>Dashboard</span>
@@ -12,8 +12,8 @@
         <button  
             class="pointer border-0 w-100  my-4"
             aria-label="Icono Empleados"
-            (click)="activeButton('employeed')"
-            [ngClass]="{'active': buttonSelect === 'employeed'}">
+            (click)="goRoute('employee')"
+            [ngClass]="{'active': buttonSelect === 'employee'}">
             
             <mat-icon>work icon</mat-icon><br>
             <span>Empleados</span>
@@ -21,7 +21,7 @@
         <button  
             class="pointer border-0 w-100 my-2"
             aria-label="Icono Pedidos"
-            (click)="activeButton('orders')"
+            (click)="goRoute('orders')"
             [ngClass]="{'active': buttonSelect === 'orders'}">
             <img src="../../assets/SVG/fluent_person-money-24-filled.svg" alt="Icon orders"><br>
            <span>Pedidos</span>

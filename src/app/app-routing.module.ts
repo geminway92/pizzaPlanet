@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'orders',loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)},
+  { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)},
   { path: '**', redirectTo: 'home'}
 ];
 

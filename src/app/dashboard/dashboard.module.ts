@@ -6,16 +6,20 @@ import { DashboardComponent } from './dashboard.component';
 
 import { MaterialModule } from '../material/material.module';
 import { CardOrderModule } from '../card-order/card-order.module';
+import { EmployeeModule } from '../employee/employee.module';
+
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
+
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    EmployeeModule,
     CardOrderModule,
     MaterialModule,
 
