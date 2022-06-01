@@ -1,17 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface CardOrders {
-  nameProcess: string,
-  color: string
-  orders: Orders[]
-}
-
-interface Orders {
-  state: string,
-  orderNumber: number,
-  customerName: string,
-  order: string
-}
+import { CardOrders } from '../interfaces/card-ordes';
 
 @Component({
   selector: 'app-dashboard',

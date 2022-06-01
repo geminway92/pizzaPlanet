@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CardOrders } from '../interfaces/card-ordes';
 
 @Component({
   selector: 'app-card-order',
@@ -7,9 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardOrderComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
 
- @Input() cardData: any; //TODO: AÑADIR INTERFACE
+  }
+
+ @Input() cardData: CardOrders = { nameProcess: '', color: '', orders: []};
 
   ngOnInit(): void {
   }
