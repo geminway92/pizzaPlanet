@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,18 +7,19 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./filter-select.component.scss']
 })
 export class FilterSelectComponent implements OnInit {
-  employees = new FormControl();
+  valueSelect = new FormControl();
+  @Input() labelFilter = '';
+  @Input() labelSelect = '';
+  @Input() optionList: string[] = []
 
   constructor() { }
   value: string = 'Buscar'
-
-  employeeList: string[] = ['Admin', 'Empleado', 'Repartidor'];
 
 
   ngOnInit(): void {
   }
   checkForm(){
-    console.log(this.employees.value)
+    console.log(this.valueSelect.value)
   }
 
 }

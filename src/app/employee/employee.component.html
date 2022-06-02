@@ -5,9 +5,13 @@
 
   <div class="d-flex p-2 flex-wrap gap-4 w-100">
 
-    <app-filter-select class="w-100"></app-filter-select>
+    <app-filter-select class="w-100"
+      labelFilter="Filtrar por" 
+      labelSelect="Rol" 
+      [optionList]="['Admin', 'Empleado', 'Repartidor']">
+    </app-filter-select>
     <app-base-table class="w-100"></app-base-table>
 
     
 
-</div>
+  </div>

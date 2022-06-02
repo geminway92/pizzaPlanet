@@ -1,7 +1,7 @@
 <form class="form-container justify-content-around rounded-special d-flex h-100">
     
     <div class="p-2 pb-3">
-        <label class="pb-1" for="filter">Filtrar por</label>
+        <label class="pb-1" for="filter">{{labelFilter}}</label>
         <div class="bg-white m-auto p-3 rounded-special">
             <mat-icon class="position-absolute">search</mat-icon>
             <input matInput id="filter" type="text" [(ngModel)]="value" name="filter" class="px-5 border-0" (click)="value = ''">
@@ -11,11 +11,11 @@
 
     
     <div class="p-2 pb-3">
-        <label class="pb-1" for="rol">Rol</label>
+        <label class="pb-1" for="rol">{{labelSelect}}</label>
         <div class="bg-white m-auto p-3 rounded-special w-min">
-            <mat-select (ngModelChange)="checkForm()" [formControl]="employees">
+            <mat-select (ngModelChange)="checkForm()" [formControl]="valueSelect">
                 <mat-option>--</mat-option>
-                <mat-option *ngFor="let employee of employeeList" [value]="employee">{{employee}}</mat-option>
+                <mat-option *ngFor="let item of optionList" [value]="item">{{item}}</mat-option>
             </mat-select>
         </div>
 

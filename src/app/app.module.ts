@@ -22,8 +22,6 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { NavLocationModule } from './nav-location/nav-location.module';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
