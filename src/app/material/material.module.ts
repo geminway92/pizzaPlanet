@@ -27,7 +27,7 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
   ]
 })
 export class MaterialModule { }

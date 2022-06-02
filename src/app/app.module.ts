@@ -17,11 +17,10 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { AddressesModule } from './addresses/addresses.module';
 import { OrdersModule } from './orders/orders.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { NavLocationComponent } from './nav-location/nav-location.component';
 import { NavLocationModule } from './nav-location/nav-location.module';
+
 
 
 

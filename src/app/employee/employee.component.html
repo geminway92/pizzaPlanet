@@ -3,37 +3,11 @@
   <button  class="btn btn-primary rounded fw-bold m-2 px-5 py-3 shadow-sm">Nuevo</button>
 </div>
 
-  <div class="d-flex p-2 flex-wrap gap-4">
+  <div class="d-flex p-2 flex-wrap gap-4 w-100">
 
+    <app-filter-select class="w-100"></app-filter-select>
+    <app-base-table class="w-100"></app-base-table>
 
-        <!-- //TODO Component -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-      
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Nombre </th>
-          <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
-        </ng-container>
-      
-        
-        <ng-container matColumnDef="surname">
-          <th mat-header-cell *matHeaderCellDef> Apellidos </th>
-          <td mat-cell *matCellDef="let employee"> {{employee.usernames}} </td>
-        </ng-container>
-      
-        
-        <ng-container matColumnDef="role">
-          <th mat-header-cell *matHeaderCellDef> Rol </th>
-          <td mat-cell *matCellDef="let employee"> {{employee.role}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let employee"> {{employee.email}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+    
 
 </div>

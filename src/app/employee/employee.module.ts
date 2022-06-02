@@ -5,6 +5,8 @@ import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MaterialModule } from '../material/material.module';
+import { BaseTableModule } from '../base-table/base-table.module';
+import { FilterSelectModule } from '../filter-select/filter-select.module';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     EmployeeRoutingModule,
-    MaterialModule
+    MaterialModule,
+    BaseTableModule,
+    FilterSelectModule
   ],
   exports: [
     EmployeeComponent
