@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
-import { MatTableDataSource } from '@angular/material/table';
 import { MaterialModule } from '../material/material.module';
 import { BaseTableModule } from '../base-table/base-table.module';
 import { FilterSelectModule } from '../filter-select/filter-select.module';
+import { LoginEmployeeModule } from '../login-employee/login-employee.module';
 
 
 @NgModule({
@@ -18,7 +18,9 @@ import { FilterSelectModule } from '../filter-select/filter-select.module';
     EmployeeRoutingModule,
     MaterialModule,
     BaseTableModule,
-    FilterSelectModule
+    FilterSelectModule,
+    LoginEmployeeModule
+
   ],
   exports: [
     EmployeeComponent

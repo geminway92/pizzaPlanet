@@ -11,8 +11,17 @@ export class BaseTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.columns = Object.keys(this.dataSource[0]);
+    this.dataSource.forEach( employee => {
+      delete employee.id
+      delete employee.tel
+    })
+
+    this.columns =  Object.keys(this.dataSource[0])
+  
+    
   }
+
+
 
   columns: string[] = [];
   @Input() dataSource: Employees[] = []

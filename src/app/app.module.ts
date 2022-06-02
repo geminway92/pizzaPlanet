@@ -20,6 +20,7 @@ import { OrdersModule } from './orders/orders.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { NavLocationModule } from './nav-location/nav-location.module';
+import { LoginEmployeeComponent } from './login-employee/login-employee.component';
 
 
 @NgModule({

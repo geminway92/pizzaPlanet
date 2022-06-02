@@ -1,0 +1,37 @@
+
+
+<form [formGroup]="myForm" class="w-100 d-flex shadow-lg flex-column align-items-center col-5 container card shadow-lg">
+        <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input class="input-color" matInput formControlName="name">
+    </mat-form-field>
+    
+    <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="lastname">
+    </mat-form-field>
+    
+    <mat-form-field class="w-100 p-3 pb-1" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput 
+        formControlName="email"
+        autocomplete="username">
+        <mat-error *ngIf="myForm.controls['email'].errors">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    
+    
+   
+    <mat-form-field class="w-100  p-3 pb-1" appearance="fill">
+        <mat-label>Número teléfono</mat-label>
+        <input matInput formControlName="tel">
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-hint>Incluye el prefijo</mat-hint>
+    </mat-form-field>
+    
+    <div class="w-100 p-3 d-flex gap-2">
+        <mat-checkbox formControlName="checkboxAdmin" class="mr-2">
+            <p>Empleado como Admin</p>
+        </mat-checkbox>
+    </div>
+    <button (click)="onSubmit()" [disabled]="myForm.invalid" class="w-100 btn btn-primary rounded fw-bold m-4 py-3 shadow-sm" >Finalizar registro </button>
+</form>

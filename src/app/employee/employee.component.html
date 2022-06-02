@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-between align-items-center">
   <h1 class="fw-bold m-2 d-inline-block">Empleados</h1>
-  <button  class="btn btn-primary rounded fw-bold m-2 px-5 py-3 shadow-sm">Nuevo</button>
+  <button  class="btn btn-primary rounded fw-bold m-2 px-5 py-3 shadow-sm" (click)="isDisplayForm = !isDisplayForm">Nuevo</button>
 </div>
 
-  <div class="d-flex p-2 flex-wrap gap-4 w-100">
+  <div class="d-flex p-2 flex-wrap gap-4 w-100 position-relative">
 
     <app-filter-select class="w-100"
       labelFilter="Filtrar por" 
@@ -13,6 +13,10 @@
       [optionList]="['admin', 'employee', 'repartidor']">
     </app-filter-select>
 
-    <app-base-table [dataSource]="employeeFiltered" class="w-100"></app-base-table>
-
+    <app-base-table *ngIf="employeeList.length > 0" [dataSource]="employeeFiltered" class="w-100"></app-base-table>
+    <app-login-employee 
+      (displayFormEmployee)="isDisplayForm = !isDisplayForm" 
+      *ngIf="isDisplayForm" 
+      class="w-100 position-absolute ">
+    </app-login-employee>
   </div>

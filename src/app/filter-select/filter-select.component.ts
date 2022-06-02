@@ -17,12 +17,12 @@ export class FilterSelectComponent {
   
   @Output() changeSelect: EventEmitter<FormGroup> = new EventEmitter();
   @Output() typeInput: EventEmitter<FormGroup> = new EventEmitter();
-  
+
   constructor( private fb: FormBuilder ) { }
   
 
   // CREAR UN NUEVO FORMULARIO CON LOS CAMPOS ROL Y FILTER
-
+  //TODO Refactorizar
   handleChangeSelect(){
     // PASAR EL FORMULARIO
     this.changeSelect.emit(this.myForm)

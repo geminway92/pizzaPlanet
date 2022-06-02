@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Auth, updateProfile,  createUserWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
 import { getAuth,onAuthStateChanged , signInWithEmailAndPassword } from '@firebase/auth';
 import { Router } from '@angular/router';
+import { Employees } from '../interfaces/employees';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,16 @@ export class UsersService {
   getUser(): Observable<Users[]>{
     const userRef = collection( this.firestore, 'employees' );
     return collectionData(userRef, { idField: 'id' }) as Observable<Users[]>
+  }
+
+  addEmployee( employee: Employees ){
+    console.log(employee)
+    const userRef = collection(this.firestore, 'employees')
+    return addDoc(userRef, employee)
+  }
+  getEmployee(): Observable<Employees[]>{
+    const userRef = collection( this.firestore, 'employees' );
+    return collectionData(userRef, { idField: 'id' }) as Observable<Employees[]>
   }
 
   // Auth
