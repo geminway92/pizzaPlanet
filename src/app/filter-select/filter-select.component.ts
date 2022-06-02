@@ -1,25 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {  FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-select',
   templateUrl: './filter-select.component.html',
   styleUrls: ['./filter-select.component.scss']
 })
-export class FilterSelectComponent implements OnInit {
-  valueSelect = new FormControl();
+export class FilterSelectComponent {
+  myForm: FormGroup = this.fb.group({
+    valueSelect: [''],
+    valueFilter: ['']
+  })
   @Input() labelFilter = '';
   @Input() labelSelect = '';
   @Input() optionList: string[] = []
+  
+  @Output() changeSelect: EventEmitter<FormGroup> = new EventEmitter();
+  @Output() typeInput: EventEmitter<FormGroup> = new EventEmitter();
+  
+  constructor( private fb: FormBuilder ) { }
+  
 
-  constructor() { }
-  value: string = 'Buscar'
+  // CREAR UN NUEVO FORMULARIO CON LOS CAMPOS ROL Y FILTER
 
-
-  ngOnInit(): void {
+  handleChangeSelect(){
+    // PASAR EL FORMULARIO
+    this.changeSelect.emit(this.myForm)
   }
-  checkForm(){
-    console.log(this.valueSelect.value)
+  
+  handleTypeInput() {
+    // PASAR EL FORMULARIO
+    this.typeInput.emit(this.myForm)
   }
 
 }

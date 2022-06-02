@@ -1,6 +1,6 @@
 export interface Employees {
     name: string,
-    usernames: string,
+    lastname: string,
     role: string,
     email: string
 }

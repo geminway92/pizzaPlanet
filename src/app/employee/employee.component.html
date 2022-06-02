@@ -7,11 +7,12 @@
 
     <app-filter-select class="w-100"
       labelFilter="Filtrar por" 
-      labelSelect="Rol" 
-      [optionList]="['Admin', 'Empleado', 'Repartidor']">
+      labelSelect="Rol"
+      (changeSelect)="filterEmployees($event)"
+      (typeInput)="filterEmployees($event)"
+      [optionList]="['admin', 'employee', 'repartidor']">
     </app-filter-select>
-    <app-base-table class="w-100"></app-base-table>
 
-    
+    <app-base-table [dataSource]="employeeFiltered" class="w-100"></app-base-table>
 
   </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { OrdersCustomersRoutingModule } from './orders-customers-routing.module';
 import { OrdersCustomersComponent } from './orders-customers.component';
 import { FilterSelectModule } from '../filter-select/filter-select.module';
+import { BaseTableModule } from '../base-table/base-table.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FilterSelectModule } from '../filter-select/filter-select.module';
   imports: [
     CommonModule,
     OrdersCustomersRoutingModule,
-    FilterSelectModule
+    FilterSelectModule,
+    BaseTableModule
   ],
   exports: [
     OrdersCustomersComponent

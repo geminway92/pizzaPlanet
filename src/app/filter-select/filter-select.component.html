@@ -1,10 +1,10 @@
-<form class="form-container justify-content-around rounded-special d-flex h-100">
+<form [formGroup]="myForm" class="form-container justify-content-around rounded-special d-flex h-100">
     
     <div class="p-2 pb-3">
         <label class="pb-1" for="filter">{{labelFilter}}</label>
-        <div class="bg-white m-auto p-3 rounded-special">
-            <mat-icon class="position-absolute">search</mat-icon>
-            <input matInput id="filter" type="text" [(ngModel)]="value" name="filter" class="px-5 border-0" (click)="value = ''">
+        <div class="bg-white m-auto p-3 rounded-special d-flex align-items-center">
+            <mat-icon >search</mat-icon>
+            <input matInput id="filter" type="text" placeholder="Buscar" formControlName="valueFilter" name="filter" class="px-5 border-0" (input)="handleTypeInput()">
         </div>
 
     </div>
@@ -13,8 +13,8 @@
     <div class="p-2 pb-3">
         <label class="pb-1" for="rol">{{labelSelect}}</label>
         <div class="bg-white m-auto p-3 rounded-special w-min">
-            <mat-select (ngModelChange)="checkForm()" [formControl]="valueSelect">
-                <mat-option>--</mat-option>
+            <mat-select (ngModelChange)="handleChangeSelect()" formControlName="valueSelect">
+                <mat-option [value]="''">- - Cualquiera - -</mat-option>
                 <mat-option *ngFor="let item of optionList" [value]="item">{{item}}</mat-option>
             </mat-select>
         </div>

@@ -5,4 +5,6 @@
         labelSelect="Estado" 
         [optionList]="['En cola', 'En proceso', 'En reparto', 'Entregado', 'Cancelado']">
     </app-filter-select>
+    <app-base-table class="w-100"
+    [dataSource]="employeeList"></app-base-table>
 </div>
